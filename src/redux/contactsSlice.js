@@ -14,6 +14,9 @@ const slice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
+      .addCase(fetchContacts.pending, (state, action) => {
+        state.loading = true;
+      })
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.items = action.payload;
       })
@@ -23,12 +26,6 @@ const slice = createSlice({
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.items = state.items.filter(item => item.id !== action.payload);
       })
-      .addMatcher(
-        isAnyOf(fetchContacts.pending, addContact.pending, deleteContact.pending),
-        state => {
-          state.loading = true;
-        }
-      )
       .addMatcher(
         isAnyOf(fetchContacts.fulfilled, addContact.fulfilled, deleteContact.fulfilled),
         state => {
