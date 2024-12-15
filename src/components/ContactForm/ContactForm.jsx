@@ -2,15 +2,15 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import s from './ContactForm.module.css';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
 import { addContact } from '../../redux/contactsOps';
 
 const ContactForm = () => {
+  const dispatch = useDispatch();
   const initValues = {
     name: '',
     number: '',
   };
-  const dispatch = useDispatch();
+
   const handleSubmit = (values, options) => {
     const { name, number } = values;
     if (!name.trim() || !number.trim()) {
