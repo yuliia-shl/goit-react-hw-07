@@ -12,5 +12,5 @@
   justify-content: space-between;
   padding: 8px;
   width: calc((100% - 24px) / 4);
-  min-width: 240px;
+  min-width: 280px;
 }
