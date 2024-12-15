@@ -18,7 +18,6 @@ const ContactForm = () => {
       return;
     }
     const newContactData = {
-      id: nanoid(),
       name: name.trim(),
       number: number.trim(),
     };
